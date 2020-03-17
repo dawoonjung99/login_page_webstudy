@@ -1,7 +1,11 @@
 <?php
+session_start();
+?>
+<?php
 $conn = mysqli_connect("localhost","root","123456","loginservice");
 $id = $_POST["id"];
 $pw = $_POST["pw"];
+$_SESSION['id'] = $_POST["id"];
 $query="SELECT nickname, pw FROM members WHERE nickname='{$id}' AND pw = '{$pw}'";
 
 $result = mysqli_query($conn, $query);
